@@ -66,12 +66,10 @@ fun OnBoardingScreen() {
                 selectedPage = pagerState.currentPage
             )
 
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 val scope = rememberCoroutineScope()
 
-                if (buttonsState.value[0].isEmpty()) {
+                if (buttonsState.value[0].isNotEmpty()) {
                     NewsTextButton(
                         text = buttonsState.value[0], onClick = {
                             scope.launch {
