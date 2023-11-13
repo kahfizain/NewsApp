@@ -9,3 +9,6 @@ this i used to build this app
 - Room
 - DataStore Preferences
 - Dagge Hillt
+
+API : https://newsapi.org/
+key :  ee3468d7f8f04e3695755fc098bde2f3
