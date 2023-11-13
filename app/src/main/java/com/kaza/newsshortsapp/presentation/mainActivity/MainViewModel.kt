@@ -6,11 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kaza.newsshortsapp.domain.usecases.AppEntryUseCases
 import com.kaza.newsshortsapp.presentation.nvgraph.Route
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+@HiltViewModel
 class MainViewModel @Inject constructor(
     private val appEntryUserCases: AppEntryUseCases
 ) : ViewModel() {
