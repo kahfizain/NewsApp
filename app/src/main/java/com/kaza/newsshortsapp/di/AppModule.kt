@@ -3,9 +3,9 @@ package com.kaza.newsshortsapp.di
 import android.app.Application
 import com.kaza.newsshortsapp.data.manger.LocalUserMangerImpl
 import com.kaza.newsshortsapp.domain.manger.LocalUserManger
-import com.kaza.newsshortsapp.domain.usecases.AppEntryUseCases
-import com.kaza.newsshortsapp.domain.usecases.ReadAppEntry
-import com.kaza.newsshortsapp.domain.usecases.SaveAppEntry
+import com.kaza.newsshortsapp.domain.usecases.app_entry.AppEntryUseCases
+import com.kaza.newsshortsapp.domain.usecases.app_entry.ReadAppEntry
+import com.kaza.newsshortsapp.domain.usecases.app_entry.SaveAppEntry
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

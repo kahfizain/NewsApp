@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.domain.usecases
+package com.kaza.newsshortsapp.domain.usecases.app_entry
 
 data class AppEntryUseCases(
     val readAppEntry: ReadAppEntry,
