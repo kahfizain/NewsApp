@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.feature.home
+package com.kaza.newsshortsapp.presentation.feature.home.data
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeVIewModel @Inject constructor(
+class HomeViewModel @Inject constructor(
     private val nesUsesCases : NewsUseCases
 ): ViewModel() {
 

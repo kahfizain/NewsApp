@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 
 import androidx.navigation.compose.rememberNavController
+import com.kaza.newsshortsapp.presentation.feature.home.HomeScreen
 import com.kaza.newsshortsapp.presentation.feature.onboarding.OnBoardingScreen
 import com.kaza.newsshortsapp.presentation.feature.onboarding.data.OnBoardingViewModel
 
@@ -36,7 +37,9 @@ fun NavGraph(
             startDestination = Route.HomeScreen.route
         ) {
             composable(route = Route.HomeScreen.route) {
-                Text(text = "News Navigator Screen")
+               HomeScreen(navigate = {
+
+               })
             }
 
             composable(route = Route.SearchScreen.route) {
