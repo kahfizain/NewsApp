@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.home.components
+package com.kaza.newsshortsapp.presentation.feature.home.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.clickable
@@ -29,10 +29,10 @@ import coil.request.ImageRequest
 import com.kaza.newsshortsapp.R
 import com.kaza.newsshortsapp.domain.model.Article
 import com.kaza.newsshortsapp.domain.model.Source
-import com.kaza.newsshortsapp.presentation.Dimens.ArticleCardSize
-import com.kaza.newsshortsapp.presentation.Dimens.ExtraSmallPadding
-import com.kaza.newsshortsapp.presentation.Dimens.ExtraSmallPadding2
-import com.kaza.newsshortsapp.presentation.Dimens.SmallIconSize
+import com.kaza.newsshortsapp.ui.theme.Dimens.ArticleCardSize
+import com.kaza.newsshortsapp.ui.theme.Dimens.ExtraSmallPadding
+import com.kaza.newsshortsapp.ui.theme.Dimens.ExtraSmallPadding2
+import com.kaza.newsshortsapp.ui.theme.Dimens.SmallIconSize
 
 @Composable
 fun ArticleCard(

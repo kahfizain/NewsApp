@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.onboarding
+package com.kaza.newsshortsapp.presentation.feature.onboarding.data
 
 import androidx.annotation.DrawableRes
 import com.kaza.newsshortsapp.R

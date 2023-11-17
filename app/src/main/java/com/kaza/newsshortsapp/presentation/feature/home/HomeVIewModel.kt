@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.home
+package com.kaza.newsshortsapp.presentation.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

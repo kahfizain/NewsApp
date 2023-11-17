@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.mainActivity
+package com.kaza.newsshortsapp.presentation.feature.mainActivity.data
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

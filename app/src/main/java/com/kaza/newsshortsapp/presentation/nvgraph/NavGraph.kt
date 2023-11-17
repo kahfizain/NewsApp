@@ -5,12 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
 import androidx.navigation.navigation
 
 import androidx.navigation.compose.rememberNavController
-import com.kaza.newsshortsapp.presentation.onboarding.OnBoardingScreen
-import com.kaza.newsshortsapp.presentation.onboarding.OnBoardingViewModel
+import com.kaza.newsshortsapp.presentation.feature.onboarding.OnBoardingScreen
+import com.kaza.newsshortsapp.presentation.feature.onboarding.data.OnBoardingViewModel
 
 
 @Composable

@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.onboarding
+package com.kaza.newsshortsapp.presentation.feature.onboarding
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -20,11 +20,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kaza.newsshortsapp.presentation.Dimens.MediumPadding2
-import com.kaza.newsshortsapp.presentation.common.NewsButton
-import com.kaza.newsshortsapp.presentation.common.NewsTextButton
-import com.kaza.newsshortsapp.presentation.onboarding.components.OnBoardingPage
-import com.kaza.newsshortsapp.presentation.onboarding.components.PagerIndicator
+import com.kaza.newsshortsapp.ui.theme.Dimens.MediumPadding2
+import com.kaza.newsshortsapp.presentation.components.NewsButton
+import com.kaza.newsshortsapp.presentation.components.NewsTextButton
+import com.kaza.newsshortsapp.presentation.feature.onboarding.components.OnBoardingPage
+import com.kaza.newsshortsapp.presentation.feature.onboarding.components.PagerIndicator
+import com.kaza.newsshortsapp.presentation.feature.onboarding.data.OnBoardingEvent
+import com.kaza.newsshortsapp.presentation.feature.onboarding.data.pages
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)

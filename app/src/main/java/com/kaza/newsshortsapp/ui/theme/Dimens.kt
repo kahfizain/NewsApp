@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation
+package com.kaza.newsshortsapp.ui.theme
 
 import androidx.compose.ui.unit.dp
 

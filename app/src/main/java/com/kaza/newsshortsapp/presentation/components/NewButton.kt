@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.common
+package com.kaza.newsshortsapp.presentation.components
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button

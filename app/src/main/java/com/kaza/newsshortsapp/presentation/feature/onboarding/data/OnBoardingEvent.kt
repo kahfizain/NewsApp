@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.onboarding
+package com.kaza.newsshortsapp.presentation.feature.onboarding.data
 
 sealed class OnBoardingEvent{
     object SaveAppEntry : OnBoardingEvent()

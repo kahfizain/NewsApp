@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.onboarding
+package com.kaza.newsshortsapp.presentation.feature.onboarding.data
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,7 +14,7 @@ class OnBoardingViewModel @Inject constructor(
 
     fun onEvent(event: OnBoardingEvent){
         when(event){
-            is OnBoardingEvent.SaveAppEntry->{
+            is OnBoardingEvent.SaveAppEntry ->{
                 saveAppEntry()
             }
         }

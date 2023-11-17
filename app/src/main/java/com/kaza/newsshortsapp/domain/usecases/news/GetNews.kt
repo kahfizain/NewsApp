@@ -2,7 +2,6 @@ package com.kaza.newsshortsapp.domain.usecases.news
 
 import androidx.paging.PagingData
 import com.kaza.newsshortsapp.domain.model.Article
-import com.kaza.newsshortsapp.domain.model.Source
 import com.kaza.newsshortsapp.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
 

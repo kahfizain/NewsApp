@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.mainActivity
+package com.kaza.newsshortsapp.presentation.feature.mainActivity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.kaza.newsshortsapp.presentation.feature.mainActivity.data.MainViewModel
 import com.kaza.newsshortsapp.presentation.nvgraph.NavGraph
 import com.kaza.newsshortsapp.ui.theme.NewsShortsAppTheme
 import dagger.hilt.android.AndroidEntryPoint

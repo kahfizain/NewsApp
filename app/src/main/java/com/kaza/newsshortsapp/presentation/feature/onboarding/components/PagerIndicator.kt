@@ -1,4 +1,4 @@
-package com.kaza.newsshortsapp.presentation.onboarding.components
+package com.kaza.newsshortsapp.presentation.feature.onboarding.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,8 +14,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kaza.newsshortsapp.presentation.Dimens.IndicatorSize
-import com.kaza.newsshortsapp.presentation.onboarding.pages
+import com.kaza.newsshortsapp.ui.theme.Dimens.IndicatorSize
+import com.kaza.newsshortsapp.presentation.feature.onboarding.data.pages
 import com.kaza.newsshortsapp.ui.theme.BlueGray
 
 @Composable
