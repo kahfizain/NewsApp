@@ -26,17 +26,20 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.kaza.newsshortsapp.R
 import com.kaza.newsshortsapp.presentation.components.ArticlesList
+import com.kaza.newsshortsapp.presentation.components.SearchBar
 import com.kaza.newsshortsapp.presentation.feature.home.data.HomeViewModel
 import com.kaza.newsshortsapp.ui.theme.Dimens
+import com.kaza.newsshortsapp.ui.theme.Dimens.MediumPadding1
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen(navigate: (String) -> Unit) {
-
-
-    val viewModel: HomeViewModel = hiltViewModel()
+fun HomeScreen(
+    viewModel: HomeViewModel = hiltViewModel(),
+    navigate: (String) -> Unit
+) {
     val articles = viewModel.news.collectAsLazyPagingItems()
 
-    /*val titles by remember {
+    val titles by remember {
         derivedStateOf {
             if (articles.itemCount > 10) {
                 articles.itemSnapshotList.items
@@ -46,24 +49,47 @@ fun HomeScreen(navigate: (String) -> Unit) {
                 ""
             }
         }
-    }*/
+    }
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = Dimens.MediumPadding1)
+            .padding(top = MediumPadding1)
             .statusBarsPadding()
     ) {
-        Image(painter = painterResource(id = R.drawable.ic_splash),
+        Image(
+            painter = painterResource(id = R.drawable.ic_logo),
             contentDescription = null,
             modifier = Modifier
                 .width(150.dp)
                 .height(30.dp)
-                .padding(horizontal = Dimens.MediumPadding1))
-        Spacer(modifier = Modifier.height(Dimens.MediumPadding1))
+                .padding(horizontal = MediumPadding1)
+        )
+        Spacer(modifier = Modifier.height(MediumPadding1))
 
+        SearchBar(
+            modifier = Modifier
+                .padding(horizontal = MediumPadding1)
+                .fillMaxWidth(),
+            text = "",
+            readOnly = true,
+            onSearch = {},
+            onValueChange = {
+
+            })
+        Spacer(modifier = Modifier.height(MediumPadding1))
+
+        Text(
+            text = titles, modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = MediumPadding1)
+                .basicMarquee(), fontSize = 12.sp,
+            color = colorResource(id = R.color.placeholder)
+        )
+        Spacer(modifier = Modifier.height(MediumPadding1))
 
         ArticlesList(
-            modifier = Modifier.padding(horizontal = Dimens.MediumPadding1),
+            modifier = Modifier.padding(horizontal = MediumPadding1),
             article = articles,
             onClick = {
                 //TODO: Navigate to Details Screen

@@ -6,5 +6,6 @@
     <color name="text_title">#000000</color>
     <color name="shimmer">#C3C3C3</color>
     <color name="placeholder">#A0A3BD</color>
+    <color name="input_background">#fff</color>
 
 </resources>

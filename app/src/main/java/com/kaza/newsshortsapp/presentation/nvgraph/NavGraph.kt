@@ -38,7 +38,6 @@ fun NavGraph(
         ) {
             composable(route = Route.HomeScreen.route) {
                HomeScreen(navigate = {
-
                })
             }
 
