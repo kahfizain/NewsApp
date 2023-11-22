@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 
 import androidx.navigation.compose.rememberNavController
-import com.kaza.newsshortsapp.presentation.feature.home.HomeScreen
+import com.kaza.newsshortsapp.presentation.feature.dashboard.Dashboard
 import com.kaza.newsshortsapp.presentation.feature.onboarding.OnBoardingScreen
 import com.kaza.newsshortsapp.presentation.feature.onboarding.data.OnBoardingViewModel
 
@@ -33,24 +33,11 @@ fun NavGraph(
         }
 
         navigation(
-            route = Route.NewsNavigation.route,
-            startDestination = Route.HomeScreen.route
+            route = Route.Dashboard.route,
+            startDestination = Route.DashboardScreen.route
         ) {
-            composable(route = Route.HomeScreen.route) {
-               HomeScreen(navigate = {
-               })
-            }
-
-            composable(route = Route.SearchScreen.route) {
-
-            }
-
-            composable(route = Route.BookmarkScreen.route) {
-
-            }
-
-            composable(route = Route.DetailScreen.route) {
-
+            composable(route = Route.DashboardScreen.route) {
+                Dashboard()
             }
 
         }

@@ -28,6 +28,7 @@ import com.kaza.newsshortsapp.R
 import com.kaza.newsshortsapp.presentation.components.ArticlesList
 import com.kaza.newsshortsapp.presentation.components.SearchBar
 import com.kaza.newsshortsapp.presentation.feature.home.data.HomeViewModel
+import com.kaza.newsshortsapp.presentation.nvgraph.Route
 import com.kaza.newsshortsapp.ui.theme.Dimens
 import com.kaza.newsshortsapp.ui.theme.Dimens.MediumPadding1
 
@@ -74,8 +75,9 @@ fun HomeScreen(
             text = "",
             readOnly = true,
             onSearch = {},
-            onValueChange = {
-
+            onValueChange = {},
+            onClick = {
+                navigate(Route.SearchScreen.route)
             })
         Spacer(modifier = Modifier.height(MediumPadding1))
 
