@@ -2,6 +2,7 @@ package com.kaza.newsshortsapp.presentation.feature.dashboard.data
 
 import androidx.navigation.NavController
 
+
 fun  navigateToTab(
     navController: NavController,
     route: String){
@@ -16,3 +17,4 @@ fun  navigateToTab(
         restoreState = true
     }
 }
+

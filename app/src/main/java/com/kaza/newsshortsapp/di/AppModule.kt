@@ -12,6 +12,7 @@ import com.kaza.newsshortsapp.domain.usecases.app_entry.SaveAppEntry
 import com.kaza.newsshortsapp.domain.usecases.news.GetNews
 import com.kaza.newsshortsapp.domain.usecases.news.NewsUseCases
 import com.kaza.newsshortsapp.domain.usecases.news.SearchNews
+
 import com.kaza.newsshortsapp.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides

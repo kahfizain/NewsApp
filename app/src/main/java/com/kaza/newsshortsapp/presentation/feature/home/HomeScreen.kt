@@ -25,18 +25,19 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.kaza.newsshortsapp.R
+import com.kaza.newsshortsapp.domain.model.Article
 import com.kaza.newsshortsapp.presentation.components.ArticlesList
 import com.kaza.newsshortsapp.presentation.components.SearchBar
 import com.kaza.newsshortsapp.presentation.feature.home.data.HomeViewModel
 import com.kaza.newsshortsapp.presentation.nvgraph.Route
-import com.kaza.newsshortsapp.ui.theme.Dimens
 import com.kaza.newsshortsapp.ui.theme.Dimens.MediumPadding1
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
-    navigate: (String) -> Unit
+    navigateToSearch: (String) -> Unit,
+    navigateToDetails: (Article) -> Unit
 ) {
     val articles = viewModel.news.collectAsLazyPagingItems()
 
@@ -77,7 +78,7 @@ fun HomeScreen(
             onSearch = {},
             onValueChange = {},
             onClick = {
-                navigate(Route.SearchScreen.route)
+                navigateToSearch(Route.SearchScreen.route)
             })
         Spacer(modifier = Modifier.height(MediumPadding1))
 
@@ -93,9 +94,7 @@ fun HomeScreen(
         ArticlesList(
             modifier = Modifier.padding(horizontal = MediumPadding1),
             article = articles,
-            onClick = {
-                //TODO: Navigate to Details Screen
-            }
+            onClick =  navigateToDetails
         )
 
     }
@@ -105,7 +104,5 @@ fun HomeScreen(
 @Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun HomeScreenView() {
-    HomeScreen(navigate = {
-
-    })
+    HomeScreen(navigateToSearch = {}, navigateToDetails = {})
 }

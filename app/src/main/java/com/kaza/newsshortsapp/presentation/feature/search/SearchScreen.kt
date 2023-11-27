@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.kaza.newsshortsapp.domain.model.Article
 import com.kaza.newsshortsapp.presentation.components.ArticlesList
 import com.kaza.newsshortsapp.presentation.components.SearchBar
 import com.kaza.newsshortsapp.presentation.feature.search.data.SearchEvent
@@ -19,7 +20,8 @@ import com.kaza.newsshortsapp.ui.theme.Dimens.MediumPadding1
 
 @Composable
 fun SearchScreen(
-    viewModel: SearchViewModel = hiltViewModel()
+    viewModel: SearchViewModel = hiltViewModel(),
+    navigateToDetails:(Article) -> Unit
 ) {
 
     Column(
@@ -39,7 +41,7 @@ fun SearchScreen(
                 viewModel.onEvent(SearchEvent.UpdateSearchQuery(it))
             },
             onSearch = {
-                viewModel.onEvent(SearchEvent.SearchNews)
+                viewModel.onEvent(SearchEvent.Search)
             })
         Spacer(modifier = Modifier.height(MediumPadding1))
 
@@ -47,9 +49,7 @@ fun SearchScreen(
             val article = it.collectAsLazyPagingItems()
             ArticlesList(
                 article = article,
-                onClick ={
-
-            } )
+                onClick = navigateToDetails)
         }
 
 
@@ -60,5 +60,5 @@ fun SearchScreen(
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun SearchScreenView() {
-    SearchScreen()
+    SearchScreen(navigateToDetails = {})
 }

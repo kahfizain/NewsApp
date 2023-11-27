@@ -4,6 +4,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("kotlin-parcelize")
 
 }
 
@@ -84,6 +85,9 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-compiler:2.45")
     implementation ("androidx.hilt:hilt-navigation-compose:1.1.0")
+
+    //Compose Foundation
+    implementation ("androidx.compose.foundation:foundation:1.4.3")
 
     //Accompanist
     implementation ("com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta")
