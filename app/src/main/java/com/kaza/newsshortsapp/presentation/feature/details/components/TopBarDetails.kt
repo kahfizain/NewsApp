@@ -43,18 +43,18 @@ fun TopBarDetails(
             }
         },
         actions = {
-            IconButton(onClick = { onBookMarkClick }) {
+            IconButton(onClick =onBookMarkClick) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_bookmark),
                     contentDescription = "ini button bookark"
                 )
             }
-            IconButton(onClick = { onShareClick }) {
+            IconButton(onClick = onShareClick) {
                 Icon(imageVector = Icons.Default.Share, 
                     contentDescription = "ini button share")
             }
             
-            IconButton(onClick = { onBrowsingClick }) {
+            IconButton(onClick = onBrowsingClick) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_network),
                     contentDescription = "ini button browsing"
