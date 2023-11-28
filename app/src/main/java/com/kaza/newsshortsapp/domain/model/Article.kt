@@ -1,9 +1,11 @@
 package com.kaza.newsshortsapp.domain.model
 
 import android.os.Parcelable
+import androidx.room.Entity
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
+@Entity
 data class Article(
     val author: String,
     val content: String,
