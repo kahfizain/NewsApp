@@ -1,6 +1,8 @@
 package com.kaza.newsshortsapp.presentation.feature.dashboard
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -18,6 +20,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.kaza.newsshortsapp.domain.model.Article
+import com.kaza.newsshortsapp.presentation.feature.bookmark.BookmarkScreen
 import com.kaza.newsshortsapp.presentation.feature.dashboard.components.DashboardBottomNavigation
 import com.kaza.newsshortsapp.presentation.feature.dashboard.data.menuDashboard
 import com.kaza.newsshortsapp.presentation.feature.dashboard.data.navigateToTab
@@ -53,7 +56,7 @@ fun Dashboard() {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
-            if (isBottomBarVisible){
+            if (isBottomBarVisible) {
                 DashboardBottomNavigation(
                     items = menuDashboard,
                     selectedItem = selectedItem,
@@ -94,10 +97,11 @@ fun Dashboard() {
                             route = it
                         )
                     },
-                    navigateToDetails ={article->
+                    navigateToDetails = { article ->
                         navigateToDetails(
-                            navController=navController,
-                            article = article)
+                            navController = navController,
+                            article = article
+                        )
 
                     })
             }
@@ -112,12 +116,26 @@ fun Dashboard() {
                 })
             }
 
-            composable(route = Route.DetailsScreen.route) {
+            composable(
+                route = Route.DetailsScreen.route,
+                enterTransition =
+                {
+                    slideIntoContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Left,
+                        animationSpec = tween(300)
+                    )
+                },
+                exitTransition = {
+                    slideOutOfContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Right,
+                        animationSpec = tween(300)
+                    )
+                }
+            ) {
                 navController.previousBackStackEntry?.savedStateHandle?.get<Article?>("article")
                     ?.let { article ->
                         DetailsScreen(
                             article = article,
-                            event = {},
                             navigateUp = {
                                 navController.navigateUp()
                             })
@@ -125,14 +143,23 @@ fun Dashboard() {
             }
 
             composable(route = Route.BookmarkScreen.route) {
+                OnBackClickStateSaver(navController = navController)
 
+                BookmarkScreen(
+                    navigateToDetail ={article ->
+                        navigateToDetails(
+                            navController = navController,
+                            article = article
+                        )
+                    } )
             }
 
 
         }
     }
 }
-private fun navigateToDetails(navController: NavController, article: Article){
+
+private fun navigateToDetails(navController: NavController, article: Article) {
     navController.currentBackStackEntry?.savedStateHandle?.set("article", article)
     navController.navigate(
         route = Route.DetailsScreen.route

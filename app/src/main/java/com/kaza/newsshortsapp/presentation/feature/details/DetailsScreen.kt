@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -15,12 +16,14 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.kaza.newsshortsapp.R
@@ -28,16 +31,32 @@ import com.kaza.newsshortsapp.domain.model.Article
 import com.kaza.newsshortsapp.domain.model.Source
 import com.kaza.newsshortsapp.presentation.feature.details.components.TopBarDetails
 import com.kaza.newsshortsapp.presentation.feature.details.data.DetailsEvent
+import com.kaza.newsshortsapp.presentation.feature.details.data.DetailsViewModel
 import com.kaza.newsshortsapp.ui.theme.Dimens.ArticleImageHeight
 import com.kaza.newsshortsapp.ui.theme.Dimens.MediumPadding1
+import com.kaza.newsshortsapp.util.UIComponent
 
 @Composable
 fun DetailsScreen(
+    viewModel: DetailsViewModel = hiltViewModel(),
     article: Article,
-    event: (DetailsEvent) -> Unit,
     navigateUp: () -> Unit
 ) {
     val context = LocalContext.current
+
+    LaunchedEffect(key1 = viewModel.sideEffect) {
+        viewModel.sideEffect?.let {
+            when(viewModel.sideEffect){
+                is UIComponent.Toast ->{
+                    Toast.makeText(context, (viewModel.sideEffect as UIComponent.Toast).massage, Toast.LENGTH_SHORT).show()
+                    viewModel.onEvent(DetailsEvent.RemoveSideEffect)
+                }
+                else -> Unit
+            }
+        }
+    }
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -62,7 +81,7 @@ fun DetailsScreen(
                 }
             },
             onBookMarkClick = {
-                event(DetailsEvent.SaveArticle)
+                viewModel.onEvent(DetailsEvent.UpdateDeleteArticle(article))
             },
             onBackClick = navigateUp
         )
@@ -121,8 +140,7 @@ fun DetailsScreenPreview() {
             ),
             url = "https://consent.google.com/ml?continue=https://news.google.com/rss/articles/CBMiaWh0dHBzOi8vY3J5cHRvc2F1cnVzLnRlY2gvY29pbmJhc2Utc2F5cy1hcHBsZS1ibG9ja2VkLWl0cy1sYXN0LWFwcC1yZWxlYXNlLW9uLW5mdHMtaW4td2FsbGV0LXJldXRlcnMtY29tL9IBAA?oc%3D5&gl=FR&hl=en-US&cm=2&pc=n&src=1",
             urlToImage = "https://media.wired.com/photos/6495d5e893ba5cd8bbdc95af/191:100/w_1280,c_limit/The-EU-Rules-Phone-Batteries-Must-Be-Replaceable-Gear-2BE6PRN.jpg"
-        ),
-        event = {}
+        )
     ) {
 
     }

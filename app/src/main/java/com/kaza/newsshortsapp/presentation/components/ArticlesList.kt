@@ -14,6 +14,38 @@ import androidx.paging.compose.LazyPagingItems
 import com.kaza.newsshortsapp.domain.model.Article
 import com.kaza.newsshortsapp.presentation.feature.home.components.ArticleCard
 import com.kaza.newsshortsapp.ui.theme.Dimens
+import com.kaza.newsshortsapp.ui.theme.Dimens.ExtraSmallPadding2
+import com.kaza.newsshortsapp.ui.theme.Dimens.MediumPadding1
+
+
+@Composable
+fun ArticlesList(
+    modifier: Modifier = Modifier,
+    articles: List<Article>,
+    onClick: (Article) -> Unit
+) {
+    if (articles.isEmpty()) {
+        EmptyScreen()
+    }
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(MediumPadding1),
+        contentPadding = PaddingValues(all = ExtraSmallPadding2)
+    ) {
+        items(
+            count = articles.size,
+        ) {
+            articles[it]?.let { article ->
+                ArticleCard(
+                    article = article,
+                    onClick = {
+                        onClick(article)
+                    })
+
+            }
+        }
+    }
+}
 
 @Composable
 fun ArticlesList(
@@ -21,7 +53,7 @@ fun ArticlesList(
     article: LazyPagingItems<Article>,
     onClick: (Article) -> Unit
 ) {
-    val handlePagingResult = handlePagingResult(article = article)
+    val handlePagingResult = handlePagingResult(article)
 
     if (handlePagingResult) {
         LazyColumn(
@@ -36,8 +68,8 @@ fun ArticlesList(
                     ArticleCard(
                         article = article,
                         onClick = {
-                        onClick(article)
-                    })
+                            onClick(article)
+                        })
                 }
             }
         }
